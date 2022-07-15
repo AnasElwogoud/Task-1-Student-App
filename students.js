@@ -7,9 +7,12 @@ const addStudent = (id, name, degree, total, comment) => {
     return std.id === id;
   });
   if (duplicateID.length === 0) {
-    for (let i = 0; i < degree.length; i++) {
-      let sum = 0;
-      total = sum + degree[i];
+    var deg = degree[0].split(",").map(function (item) {
+      return parseInt(item, 10);
+    });
+    var total = 0;
+    for (let i = 0; i < deg.length; i++) {
+      total += deg[i];
     }
     students.push({
       id,
